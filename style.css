@@ -1,0 +1,26 @@
+html,
+body {
+  background-color: whitesmoke;
+}
+
+header {
+  background-color: white;
+  box-shadow: 0 0 5px lightgrey;
+  margin-bottom: 25px;
+}
+
+.page {
+  padding: 15px;
+  background-color: white;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
+#nav > li.nav-item {
+  color: var(--blue);
+  cursor: pointer;
+}
+
+#nav > li.nav-item:hover {
+  color: var(--dark);
+}

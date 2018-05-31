@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pipedrive Test Application</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a class="navbar-brand mr-auto" href="#">Test Application</a>
+                <ul id="nav" class="nav navbar">
+                    <li class="nav-item">
+                        <a class="nav-link" data-url="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-url="users">Users</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="content"></div>
+    </div>
+
+    <script id="homepageTemplate" type="type/html">
+        <div class="jumbotron">
+            <h1 class="display-4">Homepage</h1>
+            <p class="lead">This is a Pipedrive's test application based on BackboneJS.</p>
+            <hr class="my-4">
+            <p>Current application has 3 dependencies:</p>
+            <ul>
+                <li>Bootstrap 4 (only css)</li>
+                <li>jQuery</li>
+                <li>Underscore</li>
+            </ul>
+        </div>
+    </script>
+
+    <script id="errorpageTemplate" type="type/html">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Error</h4>
+            <p>Current page is not available. Please refresh the page, go back or proceed to Homepage.</p>
+            <hr>
+            <p class="mb-0">
+                <a href="#" class="alert-link btn btn-light">Go to Homepage</a>
+                <a onClick="window.location.reload()" class="alert-link btn btn-light">Refresh the page</a>
+                <a onClick="window.history.back()" class="alert-link btn btn-light">Go back</a>
+            </p>
+        </div>
+    </script>
+
+    <script id="profileTemplateEmpty" type="type/html">
+        <div class="row">
+            <div class="col-md-3">
+                <div id="users"></div>
+            </div>
+            <div class="col-md-9 page">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>
+                            Please select a user
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="profileTemplate" type="type/html">
+        <div class="row">
+            <div class="col-md-3">
+                <div id="users"></div>
+            </div>
+            <div class="col-md-9 page">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h1>
+                            <%= name %>
+                        </h1>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>E-mail</td>
+                                    <td><%= email %></td>
+                                </tr>
+                                <tr>
+                                    <td>Phone</td>
+                                    <td>
+                                        <% if (!phone) {%>
+                                            <span> - </span>
+                                        <%  }%>
+                                        <%= phone %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Added</td>
+                                    <td><%= added %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-6">
+                        <div id="deals" class="list-group">
+                            <h1>Deals</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/underscore/underscore-min.js"></script>
+    <script src="node_modules/backbone/backbone-min.js"></script>
+    <script src="models/user.js"></script>
+    <script src="models/users.js"></script>
+    <script src="models/deal.js"></script>
+    <script src="models/deals.js"></script>
+    <script src="app.requests.js"></script>
+    <script src="views/userView.js"></script>
+    <script src="views/usersView.js"></script>
+    <script src="views/dealView.js"></script>
+    <script src="views/dealsView.js"></script>
+    <script src="views/userProfileView.js"></script>
+    <script src="views/homepageView.js"></script>
+    <script src="views/errorpageView.js"></script>
+    <script src="app.router.js"></script>
+    <script src="views/navView.js"></script>
+
+    <script src="app.js"></script>
+
+
+</body>
+
+</html>
